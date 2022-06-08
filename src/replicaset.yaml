@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: conversaotemperatura-replicaset
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: conversaotemperatura
+  template:
+    metadata:
+      labels:
+        app: conversaotemperatura
+    spec:
+      containers:
+      - name: conversaotemperatura
+        image: rodrigoclemente/conversao-temperatura:1.0.0
+        ports:
+          - containerPort: 8080
